@@ -43,8 +43,10 @@ var handleRequest = function(request, response) {
   console.log('Received request for URL: ' + request.url);
   response.writeHead(200);
   response.end('Hello World!');
-  getUserIP(function(containerIp)
-  {response.end('This is from ' + containerIp)});
+  getUserIP(function(onNewIP)
+  {
+      alert("Got IP! :" + onNewIP);
+      response.end('This is from ' + onNewIP)});
   
 };
 var www = http.createServer(handleRequest);
