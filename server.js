@@ -42,9 +42,10 @@ var http = require('http');
 var handleRequest = function(request, response) {
   console.log('Received request for URL: ' + request.url);
   response.writeHead(200);
-  response.end('Hello World!3336677');
-//   getUserIP(containerIp)
-  response.end('This is from ' + containerIp)
+  response.end('Hello World!');
+  getUserIP(function(containerIp)
+  {response.end('This is from ' + containerIp)});
+  
 };
 var www = http.createServer(handleRequest);
 www.listen(8080);
